@@ -1,15 +1,15 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import './styles/main.scss'
+import './styles/main.scss';
 
-import Home from './pages/Home'
-import Menu from './pages/Menu'
+import Home from './pages/Home';
+import Menu from './pages/Menu';
 
 render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="utbhub">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="menu" element={<Menu />} />
@@ -18,4 +18,4 @@ render(
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
-)
+);

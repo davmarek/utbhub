@@ -1,46 +1,43 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import MenuList from '../components/MenuList'
-import '../styles/Menu.scss'
+import MenuList from '../components/MenuList';
+import '../styles/Menu.scss';
 
 function Menu() {
-  const params = useParams()
-  let faculty: String = params?.faculty || 'u5'
-  let canteenId: Number
+  const params = useParams();
 
-  const [menu, setMenu] = useState([])
-  const [date, setDate] = useState(new Date(0))
+  const faculty = useRef('');
+  const [menu, setMenu] = useState([]);
+  const [date, setDate] = useState(new Date(0));
 
   useEffect(() => {
-    console.log(faculty)
+    let canteenId: Number;
 
-    switch (faculty) {
-      case 'u5':
-        canteenId = 3
-        break
+    switch (params?.faculty) {
       case 'u4':
-        canteenId = 2
-        break
+        canteenId = 2;
+        faculty.current = 'U4';
+        break;
       default:
-        canteenId = 3
-        faculty = 'u5'
+        canteenId = 3;
+        faculty.current = 'U5';
     }
 
-    console.log(`Faculty: ${faculty}`)
-    console.log(`CanteenId: ${canteenId}`)
+    console.log(`Faculty: ${faculty}`);
+    console.log(`CanteenId: ${canteenId}`);
 
     fetch(
       `https://utb-jidelnicek.herokuapp.com/index.php?canteenId=${canteenId}`
     )
       .then((response) => response.json())
       .then((json) => {
-        setMenu(json.groups)
-        setDate(new Date(json.date))
-        console.log(json.groups)
+        setMenu(json.groups);
+        setDate(new Date(json.date));
+        console.log(json.groups);
       })
-      .catch((e) => console.log(e))
-  }, [])
+      .catch((e) => console.log(e));
+  }, []);
 
   if (date.getFullYear() >= new Date().getFullYear())
     return (
@@ -52,7 +49,7 @@ function Menu() {
             month: 'short',
             day: 'numeric',
           })}
-          <div className="chip orange">{faculty.toUpperCase()}</div>
+          <div className="chip orange">{faculty.current.toUpperCase()}</div>
         </h1>
 
         {menu.length > 3 && (
@@ -64,9 +61,9 @@ function Menu() {
           </div>
         )}
       </div>
-    )
+    );
 
-  return <></>
+  return <></>;
 }
 
-export default Menu
+export default Menu;
