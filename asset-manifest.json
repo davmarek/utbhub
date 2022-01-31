@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/utbhub/static/css/main.5288f80e.css",
+    "main.js": "/utbhub/static/js/main.36790740.js",
+    "index.html": "/utbhub/index.html",
+    "main.5288f80e.css.map": "/utbhub/static/css/main.5288f80e.css.map",
+    "main.36790740.js.map": "/utbhub/static/js/main.36790740.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5288f80e.css",
+    "static/js/main.36790740.js"
+  ]
+}
