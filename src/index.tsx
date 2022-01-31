@@ -9,7 +9,7 @@ import Menu from './pages/Menu';
 
 render(
   <React.StrictMode>
-    <BrowserRouter basename="utbhub">
+    <BrowserRouter basename="/utbhub">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="menu" element={<Menu />} />
