@@ -1,0 +1,25 @@
+@import './Variables.scss';
+nav {
+  margin-top: 16px;
+  display: inline-flex;
+  gap: 16px;
+}
+
+a {
+  display: inline-block;
+  background-color: $blue;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 16px;
+
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  &.u5 {
+    background-color: $yellow;
+  }
+  &.u4 {
+    background-color: $orange;
+  }
+}

@@ -28,7 +28,7 @@ function Menu() {
     console.log(`CanteenId: ${canteenId}`);
 
     fetch(
-      `https://utb-jidelnicek.herokuapp.com/index.php?canteenId=${canteenId}`
+      `https://doctus.creativnivyvojari.cz/app/index.php?canteenId=${canteenId}`
     )
       .then((response) => response.json())
       .then((json) => {
